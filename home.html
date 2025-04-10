@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gadget Addiction Prediction</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffdf5;
+      color: #2b2b2b;
+    }
+    .hero {
+      text-align: center;
+      background: linear-gradient(to right, #fff8e1, #ffe0f0);
+      padding: 60px 20px;
+    }
+    .hero h1 {
+      font-size: 36px;
+      color: #D4AF37;
+      margin-bottom: 10px;
+    }
+    .hero h2 {
+      font-size: 22px;
+      color: #2F3C7E;
+      margin-top: 0;
+    }
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background-color: #2F3C7E;
+      padding: 12px;
+      flex-wrap: wrap;
+    }
+    .navbar a {
+      text-decoration: none;
+      padding: 12px 20px;
+      margin: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      color: white;
+      transition: 0.3s;
+    }
+    .navbar a:nth-child(1) { background: #D4AF37; }
+    .navbar a:nth-child(2) { background: #FF69B4; }
+    .navbar a:nth-child(3) { background: #009688; }
+    .navbar a:nth-child(4) { background: #FF8C00; }
+    .navbar a:hover {
+      opacity: 0.85;
+    }
+    .gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 30px 20px;
+    }
+    .gallery img {
+      width: 250px;
+      height: 160px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
+    .section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .section h3 {
+      color: #2F3C7E;
+      margin-bottom: 15px;
+    }
+    .section p, .section ul {
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    .section ul {
+      list-style-type: circle;
+      padding-left: 20px;
+    }
+    .footer {
+      background-color: #2F3C7E;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Prediction of Electronic Gadget Addiction</h1>
+    <h2>Among Students Using Machine Learning</h2>
+  </div>
+
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    {% if 'user_id' in session %}
+      <a href="{{ url_for('test') }}">Take Test</a>
+      <a href="{{ url_for('dashboard') }}">Test Result</a>
+      <a href="{{ url_for('upload') }}">Upload</a>
+      <a href="{{ url_for('logout') }}">Logout ({{ session['username'] }})</a>
+    {% else %}
+      <a href="{{ url_for('register') }}">Register</a>
+      <a href="{{ url_for('login') }}">Login</a>
+    {% endif %}
+  </div>
+
+  <!-- Image Gallery -->
+  <div class="gallery">
+    <img src="{{ url_for('static', filename='images/addiction1.jpg') }}" alt="Addiction 1">
+    <img src="{{ url_for('static', filename='images/addiction2.jpg') }}" alt="Addiction 2">
+    <img src="{{ url_for('static', filename='images/addiction3.jpg') }}" alt="Addiction 3">
+  </div>
+
+  <!-- About Section -->
+  <div class="section">
+    <h3>About the Project</h3>
+    <p>
+        This platform uses <strong>Machine Learning</strong> to assess electronic gadget addiction levels among students. 
+        By answering a simple 10-question survey, users instantly receive feedback on how their screen habits may be affecting them. 
+        Results are categorized into four clear stages—from healthy usage to high-risk addiction—helping students and educators better understand and manage digital behavior.
+      </p>
+  </div>
+
+  <!-- How It Works -->
+  <div class="section">
+    <h3>How It Works</h3>
+    <p>
+        🔐 <strong>Step 1:</strong> Register and log into the system using your credentials.<br><br>
+        📝 <strong>Step 2:</strong> Take a quick 10-question survey focused on your gadget usage and digital habits.<br><br>
+        📊 <strong>Step 3:</strong> Based on your responses, the system calculates a score and instantly classifies your addiction level into one of four stages.<br><br>
+        📁 <strong>Step 4:</strong> Institutions can also upload bulk student survey data using a <strong>CSV file</strong> for group-level predictions and analysis.
+      </p>
+  </div>
+
+  <!-- Benefits -->
+  <div class="section">
+    <h3>Why Predict Gadget Addiction?</h3>
+    <ul>
+        <li>🕒 <strong>Self-Awareness:</strong> Encourages students to reflect on how much time they spend on screens.</li>
+        <li>💡 <strong>Healthy Habits:</strong> Promotes better digital hygiene and balanced screen routines.</li>
+        <li>👩‍🏫 <strong>Early Intervention:</strong> Helps educators and counselors detect early signs of digital overuse.</li>
+        <li>📢 <strong>Awareness:</strong> Spreads the importance of digital wellness in the academic environment.</li>
+      </ul>
+  </div>
+
+  <!-- Disadvantages -->
+  <div class="section">
+    <h3>Disadvantages of Gadget Overuse</h3>
+    <ul>
+        <li>😴 <strong>Sleep Disruption:</strong> Late-night screen time affects sleep quality and posture.</li>
+        <li>📉 <strong>Reduced Focus:</strong> Excess usage lowers attention span and academic performance.</li>
+        <li>🙍 <strong>Social Withdrawal:</strong> Less real-world interaction can lead to isolation and mental fatigue.</li>
+        <li>👁️ <strong>Health Issues:</strong> Causes eye strain, headaches, and increased anxiety levels.</li>
+      </ul>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 Gadget Addiction ML Project | Contact: thandratejaswini4@example.com
+  </div>
+
+</body>
+</html>

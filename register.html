@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Gadget Addiction Test</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #fff8e1, #ffe0f0);
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 350px;
+        }
+
+        .register-container h2 {
+            color: #2F3C7E;
+            margin-bottom: 20px;
+        }
+
+        .register-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .register-container input:focus {
+            outline: none;
+            border-color: #D4AF37;
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+
+        .register-container .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-register {
+            background: #D4AF37;
+            color: white;
+        }
+
+        .btn-register:hover {
+            background: #B8860B;
+        }
+
+        .login-link {
+            display: block;
+            margin-top: 15px;
+            color: #2F3C7E;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-container">
+        <h2>Register</h2>
+        <form method="post">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="text" name="phone" placeholder="Phone Number">
+            <input type="email" name="email" placeholder="Email Address">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" class="btn btn-register" value="Register">
+        </form>
+        <a href="{{ url_for('login') }}" class="login-link">Already have an account? Login</a>
+    </div>
+
+</body>
+</html>
