@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #004d99;
+        }
+
+        .result-container {
+            max-width: 700px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .stage {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f0f8ff;
+            border-left: 6px solid #004d99;
+            text-align: left;
+        }
+
+        .highlight {
+            background-color: #fff8dc;
+            border-left: 6px solid #FF8C00;
+        }
+
+        .stage-description {
+            font-size: 16px;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+
+        .nav-btn {
+            display: inline-block;
+            margin: 20px 10px 0;
+            padding: 12px 25px;
+            background-color: #004d99;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #003366;
+        }
+
+        .logout-button {
+            background-color: #cc0000;
+        }
+
+        .logout-button:hover {
+            background-color: #990000;
+        }
+
+        .dashboard-btn {
+            background-color: #FF8C00;
+        }
+
+        .dashboard-btn:hover {
+            background-color: #e67300;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Your Test Results</h1>
+
+    <div class="result-container">
+
+        <div class="stage {% if score < 6 %}highlight{% endif %}">
+            <p>Stage 1: No Impact of Gadget Addiction</p>
+            <p class="stage-description">Minimal gadget usage with no impact on academics, social life, or mental well-being.</p>
+            <p class="stage-description">Suggestions: Maintain balance, stay informed, and take regular breaks.</p>
+        </div>
+
+        <div class="stage {% if score >= 6 and score < 12 %}highlight{% endif %}">
+            <p>Stage 2: Moderate Usage with Minor Impact</p>
+            <p class="stage-description">Some impact on sleep and slight decrease in academics or social life.</p>
+            <p class="stage-description">Suggestions: Set limits, avoid gadgets before sleep, and engage in offline activities.</p>
+        </div>
+
+        <div class="stage {% if score >= 12 and score < 18 %}highlight{% endif %}">
+            <p>Stage 3: Frequent Usage with Noticeable Impact</p>
+            <p class="stage-description">Noticeable impact on academics, sleep, and social interactions.</p>
+            <p class="stage-description">Suggestions: Balance usage, attend awareness sessions, and take breaks.</p>
+        </div>
+
+        <div class="stage {% if score >= 18 %}highlight{% endif %}">
+            <p>Stage 4: High Usage with Significant Impact</p>
+            <p class="stage-description">High gadget usage affecting academics, causing anxiety, and social issues.</p>
+            <p class="stage-description">Suggestions: Seek professional help, structure study time, and increase face-to-face interactions.</p>
+        </div>
+
+        <!-- Dashboard and Logout buttons -->
+        <a href="{{ url_for('dashboard') }}" class="nav-btn dashboard-btn">📊 View Dashboard</a>
+        <a href="{{ url_for('logout') }}" class="nav-btn logout-button">🚪 Logout</a>
+    </div>
+</body>
+</html>
